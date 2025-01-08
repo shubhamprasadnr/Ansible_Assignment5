@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('git checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/YugeshKumar01/kafka_roles-Dynamic_inventory.git'
+                git branch: 'main', url: 'https://github.com/shubhamprasadnr/Ansible_Assignment5.git'
             }
         }
     
@@ -21,7 +21,7 @@ pipeline {
         
         stage('run kafka role') {
             steps {
-                withCredentials([file(credentialsId: 'ssh-private-key', variable: 'SSH_PRIVATE_KEY')]) {
+                withCredentials([file(credentialsId: 'key-cred', variable: 'SSH_PRIVATE_KEY')]) {
                     // Ensure the private key has 400 permissions
                     sh 'chmod 400 $SSH_PRIVATE_KEY'
                     // Specify the correct SSH user (e.g., "ubuntu" for Ubuntu-based EC2 instances)
