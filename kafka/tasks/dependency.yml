@@ -19,7 +19,7 @@
 
 - name: Install Zookeeper (Debian only)
   package:
-    name: zookeeper
+    name: zookeeperd
     state: present
   when: ansible_os_family == "Debian"
 
