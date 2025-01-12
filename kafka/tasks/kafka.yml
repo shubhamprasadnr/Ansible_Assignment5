@@ -64,6 +64,10 @@
     dest: /etc/systemd/system/kafka.service
   notify: Restart Kafka
 
+- name: Ensure Java 11 is set as the default
+  command: update-alternatives --set java /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+  become: yes
+  
 - name: Reload systemd daemon
   systemd:
     daemon_reload: yes
